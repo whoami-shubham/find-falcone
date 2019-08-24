@@ -45,39 +45,13 @@ const appReducer =  (state=initState, action)=>{
                   time: new_time
               }
     }
-    if(action.type===PENDING){
+    if(action.type===PENDING || action.type===ERROR || action.type===FULFILLED || action.type===SEARCHING || action.type===SEARCHED){
         return {
             ...state,
             ...action.payload
         }
     }
-    if(action.type===ERROR){
-        return {
-            ...state,
-            ...action.payload
-        }
-    }
-    if(action.type===FULFILLED){
-        return {
-            ...state,
-            ...action.payload
-        }
-    }
-    if(action.type===SEARCHING){
-        return {
-            ...state,
-            ...action.payload,
-        }
-
-    }
-    if(action.type===SEARCHED){
-        return {
-            ...state,
-            ...action.payload
-        }
-
-    }
-
+    
     return {...state};
 
 }
