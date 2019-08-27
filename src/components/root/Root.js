@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import Home from './Home';
+import Home from '../home/Home';
 import {connect} from 'react-redux'
-import {reset} from './actions/actionCreator'
-import GameOver from './GameOver';
-import Error from './Error';
-import Loading from './Loading';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import {reset} from '../actions/actionCreator'
+import GameOver from '../GameOver';
+import Error from '../Error';
+import Loading from '../Loading';
+import Navbar from '../navbar/Navbar';
+import Footer from '../footer/Footer';
 
 
 class Root extends Component {
@@ -43,6 +43,7 @@ isLoading = ()=>{
 }
 
 isError = ()=>{
+    console.log(this.props.store.error)
     return this.props.store.error.trim().length>0;
 }
 

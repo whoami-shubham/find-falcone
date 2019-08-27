@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Planet from './Planet';
+import './Home.css'
+import Planet from '../planet/Planet';
 import {connect} from 'react-redux'
-import {findfalcone} from './actions/actionCreator'
+import {findfalcone} from '../actions/actionCreator'
+import {token_url,find_url} from '../production'
 
-const token_url = "https://findfalcone.herokuapp.com/token";
-const find_url  = "https://findfalcone.herokuapp.com/find";
 
 const MAX_PLANETS = 4;
 
@@ -60,7 +60,7 @@ findFalcone = ()=>{
             planets.push(
 
                 <div className="w-20" key={key}>
-                    <p><b>Destination {id}</b></p>
+                    <b className="text_bold">Destination {id}</b>
                     <Planet id={key} />
                 </div>
 
@@ -77,7 +77,7 @@ findFalcone = ()=>{
                     <div className="row">
                             {planets}
                         <div className="w-20">
-                            <p className="stick_right"><b>Time taken</b></p><br/>
+                            <b className="text_bold stick_right">Time taken</b><br/>
                             <span className="badge badge-pill badge-primary btn stick_right">{this.props.store.time}</span>
                         </div>
                     </div>

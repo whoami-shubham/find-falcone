@@ -1,0 +1,17 @@
+.w-20{
+	width: 20%;
+	padding: 1rem;
+}
+
+@media (max-width: 492px){
+  .w-20{
+    padding: 0;
+  }
+}
+@media (max-width: 311px){
+ 
+     .w-20{
+       width: 50%;
+       padding: 1rem;
+     }
+}

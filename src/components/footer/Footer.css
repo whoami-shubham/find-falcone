@@ -1,0 +1,26 @@
+.last{
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.footer{
+  text-align: center;
+  margin:10px;
+  color:#000;
+  font-size: 12px;
+}
+
+@media (max-width: 325px){
+ .last{
+ 	position: inherit;
+ }
+ 
+}
+@media (max-height:530px){
+ .last{
+ 	position: inherit;
+ }
+ 
+}

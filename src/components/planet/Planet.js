@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Vehicle from './Vehicle';
+import Vehicle from '../vehicle/Vehicle';
+import './Planet.css'
 import {connect} from 'react-redux'
-import {addQuantity,subQuantity,updateTime} from './actions/actionCreator'
+import {addQuantity,subQuantity,updateTime} from '../actions/actionCreator'
 
 const MAX_VEHICLES = 4;
 

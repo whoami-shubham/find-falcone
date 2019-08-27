@@ -1,0 +1,34 @@
+@media (max-width: 992px){
+
+  .radio{
+    font-size: 14px;
+ }
+ 
+}
+
+@media (max-width: 560px){
+  .radio{
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 492px){
+  
+	  .radio{
+	    font-size: 10px;
+	 }
+}
+ 
+
+  @media (max-width: 368px){
+        .radio{
+          font-size: 3vw;
+       }
+      
+    
+  }
+  @media (max-width: 311px){
+        .radio{
+          font-size: 3vw;
+       }
+  }

@@ -1,7 +1,6 @@
 import {UPDATE_TIME,ADD_QUANTITY,SUB_QUANTITY,PENDING,FULFILLED,ERROR, SEARCHED,SEARCHING} from './actionType'
+import {vehicles_url,planets_url} from '../production'
 
-const vehicles_url = 'https://findfalcone.herokuapp.com/vehicles';
-const planets_url  = 'https://findfalcone.herokuapp.com/planets'; 
 
 const headers = {
     'Accept': 'application/json',
@@ -98,7 +97,7 @@ export  function reset(){
             .then(res=>{ data.vehicles = getData(res,0); return fetch(planets_url)})
             .then(res=>res.json())
             .then(res=>{data.planets = getData(res,false); dispatch(fulfilled(data)) })
-            .catch(err=>{console.log(err); dispatch(error(err)) })
+            .catch(err=>{dispatch(error(err)) })
         }
     }
 

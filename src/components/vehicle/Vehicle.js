@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './Vehicle.css'
 export default class Vehicle extends Component {
 
 
