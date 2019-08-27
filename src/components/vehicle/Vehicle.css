@@ -1,28 +1,40 @@
 @media (max-width: 992px){
 
   .radio{
-    font-size: 14px;
+    font-size: 12px;
  }
- 
+
+}
+
+@media (max-width: 760px){
+  .radio{
+    font-size: 10px;
+  }
+  input[type='radio'] {
+    transform: scale(0.7);
+  }
 }
 
 @media (max-width: 560px){
   .radio{
-    font-size: 12px;
+    font-size: 9px;
+  }
+  input[type='radio'] {
+    transform: scale(0.6);
   }
 }
 
 @media (max-width: 492px){
   
 	  .radio{
-	    font-size: 10px;
+	    font-size: 8px;
 	 }
 }
  
 
   @media (max-width: 368px){
         .radio{
-          font-size: 3vw;
+          font-size: 2vw;
        }
       
     
