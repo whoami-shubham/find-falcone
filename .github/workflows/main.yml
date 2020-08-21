@@ -12,8 +12,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Build-Action Test:
-    name: Build-Action Test
+  Build-Action-Test:
+    name: Build-Action-Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.1.0
