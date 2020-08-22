@@ -1,23 +1,28 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
-
+name: MasterDeployCI
 on:
-  push:
+   push:
     branches: [ master ]
-  pull_request:
+   pull_request:
     branches: [ master ]
-
 jobs:
-  buildAndTest:
-    name: Build and Test
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
     steps:
-      - uses: actions/checkout@v1
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Packages
+      run: npm install
+    - name: Build
+      run: |
+        git config --global user.email ${{secrets.EMAIL}}
+        git config --global user.name "whoami-shubham"
+        git remote set-url origin https://${{secrets.TOKEN}}@github.com/whoami-shubham/
+find-falcone.git
 
-      - name: Install Dependencies
-        run: yarn
-
-      - name: Build
-        run: yarn build
+        npm run build
