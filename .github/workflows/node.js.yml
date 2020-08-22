@@ -1,26 +1,35 @@
-name: MasterDeployCI
+name: Build and Deploy
 on:
-   push:
-    branches: [ master ]
-   pull_request:
-    branches: [ master ]
+  push:
+    branches:
+      - master
 jobs:
-  build:
+  install-and-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x,12.x,14.x]
+        node-version: [10.x, 12.x, 14.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install Packages
-      run: npm install
-    - name: Build
-      run: |
-        git config --global user.email ${{secrets.EMAIL}}
-        git config --global user.name "whoami-shubham"
-        git remote set-url origin https://${{secrets.TOKEN}}@github.com/whoami-shubham/find-falcone.git
-        npm run deploy
+      - uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: yarn
+        env:
+          CI: true
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          BUILD_SCRIPT: yarn && yarn build
