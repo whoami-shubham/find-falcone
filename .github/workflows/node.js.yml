@@ -10,18 +10,14 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  buildAndTest:
+    name: Build and Test
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
-    - uses: 'omposite'
-    - name: Use Node.js ${{ matrix.node-version }}
-    - run: npm install
-      shell: bash
-    - run: npm run build 
-      shell: bash
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
